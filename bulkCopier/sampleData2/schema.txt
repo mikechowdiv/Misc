@@ -1,0 +1,251 @@
+USE [master]
+GO
+/****** Object:  Database [MikeTest]    Script Date: 12/09/2017 4:53:00 PM ******/
+CREATE DATABASE [MikeTest] ON  PRIMARY 
+( NAME = N'MikeTest', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\MikeTest.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'MikeTest_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\MikeTest_log.ldf' , SIZE = 29696KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [MikeTest] SET COMPATIBILITY_LEVEL = 100
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [MikeTest].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [MikeTest] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [MikeTest] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [MikeTest] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [MikeTest] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [MikeTest] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [MikeTest] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [MikeTest] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [MikeTest] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [MikeTest] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [MikeTest] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [MikeTest] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [MikeTest] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [MikeTest] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [MikeTest] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [MikeTest] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [MikeTest] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [MikeTest] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [MikeTest] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [MikeTest] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [MikeTest] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [MikeTest] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [MikeTest] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [MikeTest] SET RECOVERY FULL 
+GO
+ALTER DATABASE [MikeTest] SET  MULTI_USER 
+GO
+ALTER DATABASE [MikeTest] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [MikeTest] SET DB_CHAINING OFF 
+GO
+USE [MikeTest]
+GO
+/****** Object:  User [LMGMARKETING\Administrator]    Script Date: 12/09/2017 4:53:01 PM ******/
+CREATE USER [LMGMARKETING\Administrator] FOR LOGIN [LMGMARKETING\Administrator] WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[Batch]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Batch](
+	[BatchNumber] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[VenueCount] [int] NULL,
+ CONSTRAINT [PK_Batch_1] PRIMARY KEY CLUSTERED 
+(
+	[BatchNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BatchSummary]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BatchSummary](
+	[BatchNumber] [int] NOT NULL,
+	[ProcessedDate] [datetime] NOT NULL,
+	[FileName] [nvarchar](max) NULL,
+	[SalesDate] [datetime] NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Execptions]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Execptions](
+	[BatchNumber] [int] NOT NULL,
+	[ProcessedDate] [datetime] NOT NULL,
+	[ErrorCode] [nvarchar](50) NULL,
+	[ErrorDescription] [nvarchar](max) NULL,
+	[Details] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblItemTemp]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblItemTemp](
+	[BatchNumber] [int] NOT NULL,
+	[Date] [datetime] NULL,
+	[Site] [int] NULL,
+	[Site Name] [nvarchar](100) NULL,
+	[Location] [int] NULL,
+	[Location Name] [nvarchar](100) NULL,
+	[Location Type] [nvarchar](100) NULL,
+	[Location Type Name] [nvarchar](100) NULL,
+	[Item] [nvarchar](100) NULL,
+	[Description] [nvarchar](100) NULL,
+	[Department] [int] NULL,
+	[Department Name] [nvarchar](100) NULL,
+	[Division] [nvarchar](100) NULL,
+	[Division Name] [nvarchar](100) NULL,
+	[Supplier] [int] NULL,
+	[Supplier Name] [nvarchar](100) NULL,
+	[Brand] [int] NULL,
+	[Brand Name] [nvarchar](100) NULL,
+	[Item Size] [nvarchar](50) NULL,
+	[Sales] [money] NULL,
+	[GST] [money] NULL,
+	[Quantity] [float] NULL,
+	[Cost] [money] NULL,
+	[Item Discount] [money] NULL,
+	[Sales Discount Quantity] [int] NULL,
+	[ItemNoOrLF] [int] NULL,
+	[LFDesc] [nvarchar](60) NULL,
+	[ItemFileName] [nvarchar](50) NULL,
+	[ImportedDate] [datetime] NULL,
+	[tblId] [decimal](18, 0) IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblJournalTemp]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblJournalTemp](
+	[BatchNumber] [int] NOT NULL,
+	[Date] [datetime] NULL,
+	[Site] [int] NULL,
+	[Site Name] [nvarchar](100) NULL,
+	[Location] [int] NULL,
+	[Location Name] [nvarchar](100) NULL,
+	[Location Type] [nvarchar](100) NULL,
+	[Location Type Name] [nvarchar](100) NULL,
+	[Terminal] [int] NULL,
+	[Journal] [int] NULL,
+	[Sequence] [int] NULL,
+	[Time] [datetime] NULL,
+	[Item] [nvarchar](100) NULL,
+	[Barcode] [nvarchar](30) NULL,
+	[Description] [nvarchar](100) NULL,
+	[Department] [int] NULL,
+	[Department Name] [nvarchar](100) NULL,
+	[Division] [nvarchar](100) NULL,
+	[Division Name] [nvarchar](100) NULL,
+	[Sales] [money] NULL,
+	[GST] [money] NULL,
+	[Quantity] [float] NULL,
+	[Cost] [money] NULL,
+	[Item Discount] [money] NULL,
+	[Loyalty Discount] [money] NULL,
+	[Offer Discount] [money] NULL,
+	[Price] [money] NULL,
+	[Original Price] [money] NULL,
+	[Scanned] [nvarchar](5) NULL,
+	[Is Loyalty] [nvarchar](5) NULL,
+	[Sales Discount Quantity] [float] NULL,
+	[Customer Name] [nvarchar](100) NULL,
+	[Postcode] [nvarchar](5) NULL,
+	[Email] [nvarchar](100) NULL,
+	[Mobile] [nvarchar](20) NULL,
+	[Covers] [int] NULL,
+	[Card] [nvarchar](30) NULL,
+	[Card Type] [int] NULL,
+	[Total Points] [float] NULL,
+	[Bonus Points] [float] NULL,
+	[Redeemed Points] [float] NULL,
+	[Redeemed Amount] [money] NULL,
+	[Expired Points] [float] NULL,
+	[Home Site] [int] NULL,
+	[JournalFileName] [nvarchar](50) NULL,
+	[ImportedDate] [datetime] NULL,
+	[tblId] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[ItemNoOrLF] [int] NULL,
+	[LFDesc] [nvarchar](60) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblTest1Temp]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblTest1Temp](
+	[BatchNumber] [int] NOT NULL,
+	[Date] [datetime] NULL,
+	[Site] [int] NULL,
+	[Site Name] [nvarchar](100) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblTestTemp]    Script Date: 12/09/2017 4:53:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblTestTemp](
+	[BatchNumber] [int] NOT NULL,
+	[Date] [datetime] NULL,
+	[Site] [int] NULL,
+	[Site Name] [nvarchar](100) NULL,
+	[Location] [int] NULL,
+	[Location Name] [nvarchar](100) NULL,
+	[Location Type] [nvarchar](100) NULL,
+	[Location Type Name] [nvarchar](100) NULL,
+	[Sales] [money] NULL,
+	[GST] [money] NULL,
+	[Quantity] [float] NULL,
+	[Cost] [money] NULL,
+	[Item Discount] [money] NULL,
+	[Sales Discount] [money] NULL,
+	[Sales Discount GST] [money] NULL,
+	[Sale Discount Quantity] [money] NULL,
+	[DataFrom] [nvarchar](255) NULL,
+	[SalesFileName] [nvarchar](50) NULL,
+	[ImportedDate] [datetime] NULL,
+	[tblId] [decimal](18, 0) IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+USE [master]
+GO
+ALTER DATABASE [MikeTest] SET  READ_WRITE 
+GO

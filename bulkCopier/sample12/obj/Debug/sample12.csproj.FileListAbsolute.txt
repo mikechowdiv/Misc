@@ -1,0 +1,14 @@
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\NLog.config
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\sample12.exe.config
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\sample12.exe
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\sample12.pdb
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\EntityFramework.dll
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\NLog.dll
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\EntityFramework.xml
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\bin\Debug\NLog.xml
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\obj\Debug\sample12.csproj.CoreCompileInputs.cache
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\obj\Debug\sample12.exe
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\obj\Debug\sample12.pdb
+C:\Users\mikec\Desktop\workspace\mikechow\temp_to_be_deleted\sample12\sample12\obj\Debug\sample12.csprojResolveAssemblyReference.cache
