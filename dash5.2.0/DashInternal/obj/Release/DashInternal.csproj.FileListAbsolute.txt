@@ -1,0 +1,10 @@
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\bin\Release\DashInternal.exe.config
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\bin\Release\DashInternal.exe
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\bin\Release\DashInternal.pdb
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.csprojResolveAssemblyReference.cache
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.Dashform.resources
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.Properties.Resources.resources
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.csproj.GenerateResource.Cache
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.csproj.CoreCompileInputs.cache
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.exe
+C:\Users\mikec\Desktop\workspace\dash5.2.0\DashInternal\obj\Release\DashInternal.pdb
