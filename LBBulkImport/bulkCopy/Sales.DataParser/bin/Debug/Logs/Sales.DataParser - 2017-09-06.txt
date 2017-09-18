@@ -1,0 +1,1 @@
+2017-09-06 13:03:21.9011 - ERROR - Sales.DataParser.Program.Main                                                                   - The given value of type String from the data source cannot be converted to type datetime of the specified target column.
